@@ -1,0 +1,36 @@
+metadata:
+  keyOne: valOne
+
+service:
+  name: trip_management
+  team: team_a
+  kind: site
+  isStub: false
+  isThirdParty: true
+  location: azure
+  isPublic: true
+  environment: prod
+  dataIdentifiers:
+    - names
+    - ssns
+    - emails
+  hosts:
+    - trip_management.internal.xyz
+    - trip_management.internal.xyz
+  homeUrl: https://trip_management.internal.xyz:8888
+  docsUrl: https://trip_management.site.com
+  repository: https://site.githost.com/trip_management
+
+providers:
+  thirdParty:
+    - my_service
+  inHouse: 
+    - billing_service
+
+threatModel:
+  - threat: Integer Overflow or Wraparound
+    status: CLOSED
+    risk: HIGH
+    cwe: 89
+    description: The software performs a calculation that can produce an integer overflow or wraparound, when the logic assumes that the resulting value will always be larger than the original value. This can introduce other weaknesses when the calculation is used for resource management or execution control.
+    mitigation: Ensure that all protocols are strictly defined, such that all out-of-bounds behavior can be identified simply, and require strict conformance to the protocol.
